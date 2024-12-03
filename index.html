@@ -11,6 +11,33 @@
             padding: 0;
             background-color: #f5f5f5;
         }
+
+        /* Cinta superior */
+        .marquee-container {
+            width: 100%;
+            background-color: #b8e994; /* Verde claro */
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .marquee-text {
+            display: inline-block;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #1e8449; /* Verde oscuro */
+            animation: marquee 12s linear infinite; /* Duración ajustada */
+        }
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
         .header {
             text-align: center;
             padding: 20px;
@@ -21,10 +48,11 @@
         }
         .header span {
             display: block;
-            font-size: 18px;
+            font-size: 16px;
         }
         .container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
             padding: 20px;
@@ -33,7 +61,8 @@
             background: white;
             border: 2px solid #ddd;
             border-radius: 10px;
-            width: 250px;
+            width: 90%; /* Ajuste para móviles */
+            max-width: 250px; /* Máximo para pantallas grandes */
             text-align: center;
             padding: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -44,17 +73,18 @@
             padding: 10px;
             margin: 0;
             border-radius: 10px 10px 0 0;
-            font-size: 20px;
+            font-size: 18px; /* Ajuste para móviles */
         }
         .subject {
             margin: 10px;
             padding: 10px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             border: 2px solid #ddd;
             border-radius: 5px;
             display: inline-block;
             width: 80%;
+            transition: all 0.3s ease; /* Suaviza el cambio de color */
         }
         .sociales {
             color: #3867d6;
@@ -68,9 +98,48 @@
         .ciencia {
             color: #8854d0;
         }
+        /* Efecto hover */
+        .sociales:hover {
+            background-color: #3867d6;
+            color: white;
+        }
+        .lenguaje:hover {
+            background-color: #eb3b5a;
+            color: white;
+        }
+        .matematica:hover {
+            background-color: #20bf6b;
+            color: white;
+        }
+        .ciencia:hover {
+            background-color: #8854d0;
+            color: white;
+        }
+
+        /* Ajustes para dispositivos pequeños */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 20px;
+            }
+            .header span {
+                font-size: 14px;
+            }
+            .column {
+                width: 100%;
+                max-width: 300px;
+            }
+            .marquee-text {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="marquee-container">
+        <div class="marquee-text">
+            RINCÓN DE EVALUACIONES DOCENTES EL SALVADOR
+        </div>
+    </div>
     <div class="header">
         EVALUACIONES
         <span>Actualizado programa 2025</span>
